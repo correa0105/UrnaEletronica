@@ -184,6 +184,8 @@ section {
     display: flex;
     justify-content: right;
     width: 74%;
+    height: 15rem;
+    align-items: center;
     font-size: 7rem;
     font-weight: bold;
 }
