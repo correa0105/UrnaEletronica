@@ -1,0 +1,180 @@
+@keyframes flashing {
+    0% {opacity: 0.2;}
+    50% {opacity: 1;}
+    100% {opacity: 0.2;}
+}
+
+section {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: url(../img/background.jpg);
+}
+
+.urna {
+    display: flex;
+    padding: 2.5rem;
+    background: #DBD5C9;
+    -webkit-box-shadow: 10px 12px 7px 4px rgba(0,0,0,0.75); 
+    box-shadow: 10px 12px 7px 4px rgba(0,0,0,0.75);
+}
+
+.display {
+    display: flex;
+    flex-flow: column nowrap;
+    width: 68rem;
+    height: 50rem;
+    background: linear-gradient(to right, #E8E8E8, #C1C1C1);
+    border: 0.2rem solid #000;
+    justify-content: space-between;
+}
+
+.keyboards {
+    margin-left: 2.5rem;
+    background: #403A3A;
+}
+
+.keyboards-numbers {
+    display: flex;
+    justify-content: center;
+    margin: 2rem;
+}
+
+.keyboards-numbers button {
+    font-size: 4.8rem;
+    padding: 1rem 2rem;
+    margin: 0.5rem;
+    background: #000;
+    color: #FFF;
+    cursor: pointer;
+}
+
+.keyboards-actions tr{
+    display: flex;
+    justify-content: center;
+    margin: 2rem;
+    gap: 1.5rem
+}
+
+.keyboards-actions button {
+    font-size: 1.5rem;
+    padding: 1.9rem 1.5rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.white {
+    background: #FFF;
+}
+
+.reset {
+    background: #F09046;
+}
+
+.confirm {
+    background: #48C079;
+}
+
+.informations {
+    display: grid;
+    grid-template-columns: 4fr 1fr;
+}
+
+.img-grid .img-candidate {
+    width: 100%;
+    border: 0.2rem solid #000;
+}
+
+.img-grid h2 {
+    background: #FFF;
+    margin-top: -0.21rem;
+    text-align: center;
+    line-height: 2.8rem;
+    font-size: 1rem;
+}
+
+.img-candidate img {
+    width: 100%;
+}
+
+.informations .img-vice-candidate {
+    width: 80%;
+    float: right;
+    border: 0.2rem solid #000;
+}
+
+.img-vice-candidate img {
+    width: 100%;
+}
+
+.legend {
+    padding: 1.2rem;
+    border-top: 0.1rem solid #000;
+}
+
+.legend p {
+    font-size: 1.2rem;
+    margin-bottom: 0.2rem;
+    font-weight: bold;
+}
+
+.description {
+    padding-left: 2rem;
+}
+
+.containerYourVote {
+    min-height: 5.8rem;
+    display: flex;
+}
+
+.yourVote {
+    align-self: center;
+    font-size: 3rem;
+    font-weight: bold;
+}
+
+.voteType {
+    margin: 1.5rem 0;
+    font-size: 3rem;
+    text-align: center;
+    font-weight: bold;
+}
+
+.inputGrid {
+    display: flex;
+    margin: 3rem 0 6rem 0;
+}
+
+.inputGrid input {
+    font-size: 4rem;
+    text-align: center;
+    width: 5rem;
+    height: 6.5rem;
+    border: 0.1rem solid #000;
+    background: none;
+    outline: none;
+}
+
+.informationsVote p {
+    font-size: 2rem;
+    margin: 1rem 0;
+}
+
+.flashing {
+    animation-name: flashing;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+}
+
+.null-vote {
+    text-align: center;
+    font-size: 5rem;
+    font-weight: bold;
+}
+
+.end {
+    text-align: center;
+    font-size: 7rem;
+    font-weight: bold;
+}
