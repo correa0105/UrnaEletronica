@@ -1,125 +1,125 @@
-let yourVote = document.querySelector(".yourVote");                     //ARMAZENA A QUERY DO "SEU VOTO PARA"
-let office = document.querySelector(".voteType");                       //ARMAZENA A QUERY DO "CARGO DO VOTO"
-let descritionVote = document.querySelector(".informationsVote");       //ARMAZENA A QUERY DAS INFORMÇÕES
-let legend = document.querySelector(".legend");                         //ARMAZENA A QUERY DA LEGENDA
-let containerImg = document.querySelector(".img-grid");                 //ARMAZENA A QUERY DAS IMAGENS
-let inputGrid = document.querySelector(".inputGrid");                   //ARMAZENA A QUERY DA GRID DE INPUTS
-let buttons = document.querySelector(".keyboards");                     //ARMAZENA A QUERY DOS BOTÕES
+let yourVote = document.querySelector(".yourVote");
+let office = document.querySelector(".voteType");
+let descritionVote = document.querySelector(".informationsVote");
+let legend = document.querySelector(".legend");
+let containerImg = document.querySelector(".img-grid");
+let inputGrid = document.querySelector(".inputGrid");
+let buttons = document.querySelector(".keyboards");
 
-let currentStage = 0;                                                   //DEFINE O ESÁGIO EM 0
-let numberCandidate = "";                                               //NUMERO DO CANDIDATO EM 0
-let statusWhite = false;                                                //STATUS DO BRANCO PARA FALSE
+let currentStage = 0;
+let numberCandidate = "";
+let statusWhite = false;
 
-function start() {                                                      //INICIA A FUNÇÃO START
-    let stage = stages[currentStage];                                   //CRIA VARIAVEL STAGE QUE ARMAZENA O OBJETO STAGIO NO INDICE 0
+function start() {                                                           //FUNÇÃO DE INICIAR O PROGRAMA COM O EVENTO DE BOTAO CLICK
+    let stage = stages[currentStage];
     
-    numberCandidate = "";                                               //ZERA O NUMERO DO CANDIDATO SEMPRE QUE INICIA O PROGRAMA
+    numberCandidate = "";
 
-    let qntdInputs = "";                                                //CRIA VARIAVEL DE QUANTIDADE DE INPUTS
+    let qntdInputs = "";
 
-    for (let i = 0; i < stage.numbers; i++) {                           //CRIA UM FOR PARA DETERMINAR A QUANTIDADE DE INPUTS
-        if (i === 0) {                                                  //O PRIMEIRO INPUT TERA A CLASSE FLASHING
-            qntdInputs += '<input class="inputItem flashing"></input>'; //INCLUE O CÓDIGO NA VARIAVEL DE QUANTIDADE DE INPUTS
-        } else {                                                        //O RESTANTE SERA APENAS A VARIAVEL INPUT ITEM
-            qntdInputs += '<input class="inputItem"></input>';          //INCLUI O CODIGO NA VARIAVEL DE QUANTIDADE DE INPUTS
+    for (let i = 0; i < stage.numbers; i++) {
+        if (i === 0) {
+            qntdInputs += '<input class="inputItem flashing"></input>';
+        } else {
+            qntdInputs += '<input class="inputItem"></input>';
         }
     }
 
-    inputGrid.innerHTML = qntdInputs;                                   //A GRID DE INPUTS RECEBE O CÓDIGO NO SEU HTML QUE ESTA DIGITADO DENTRO DA VARIAVEL
+    inputGrid.innerHTML = qntdInputs;
 
-    yourVote.style.display = "none";                                    //"SEU VOTO PARA:" FICA INVISIVEL
-    legend.style.display = "none";                                      //A LEGENDA FICA INVISIVEL
+    yourVote.style.display = "none";
+    legend.style.display = "none";
 
-    containerImg.innerHTML = "";                                        //O CONTAINER DE IMAGEM FICA VAZIO
-    descritionVote.innerHTML = "";                                      //A DESCRIÇÃO DO CANDIDATO FICA VAZIO
+    containerImg.innerHTML = "";
+    descritionVote.innerHTML = "";
 
-    office.innerHTML = stage.title;                                     //O CARGO RECEBE A O TITULO DO OBJETO DE ACORDO COM O ESTAGIO ATUAL
+    office.innerHTML = stage.title;
 
-    btnClick();                                                         //CHAMA A FUNÇÃO DE CAPTURA DE CLICK DE BOTAO
+    btnClick();
 }
 
-function start2() {
-    let stage = stages[currentStage];                                   //CRIA VARIAVEL STAGE QUE ARMAZENA O OBJETO STAGIO NO INDICE 0
+function start2() {                                                          //FUNÇÃO DE INICIAR O PROGRAMA SEM O EVENTO DE BOTÃO CLICK
+    let stage = stages[currentStage];
     
-    numberCandidate = "";                                               //ZERA O NUMERO DO CANDIDATO SEMPRE QUE INICIA O PROGRAMA
+    numberCandidate = "";
 
-    let qntdInputs = "";                                                //CRIA VARIAVEL DE QUANTIDADE DE INPUTS
+    let qntdInputs = "";
 
-    for (let i = 0; i < stage.numbers; i++) {                           //CRIA UM FOR PARA DETERMINAR A QUANTIDADE DE INPUTS
-        if (i === 0) {                                                  //O PRIMEIRO INPUT TERA A CLASSE FLASHING
-            qntdInputs += '<input class="inputItem flashing"></input>'; //INCLUE O CÓDIGO NA VARIAVEL DE QUANTIDADE DE INPUTS
-        } else {                                                        //O RESTANTE SERA APENAS A VARIAVEL INPUT ITEM
-            qntdInputs += '<input class="inputItem"></input>';          //INCLUI O CODIGO NA VARIAVEL DE QUANTIDADE DE INPUTS
+    for (let i = 0; i < stage.numbers; i++) {
+        if (i === 0) {
+            qntdInputs += '<input class="inputItem flashing"></input>';
+        } else {
+            qntdInputs += '<input class="inputItem"></input>';
         }
     }
 
-    inputGrid.innerHTML = qntdInputs;                                   //A GRID DE INPUTS RECEBE O CÓDIGO NO SEU HTML QUE ESTA DIGITADO DENTRO DA VARIAVEL
+    inputGrid.innerHTML = qntdInputs;
 
-    yourVote.style.display = "none";                                    //"SEU VOTO PARA:" FICA INVISIVEL
-    legend.style.display = "none";                                      //A LEGENDA FICA INVISIVEL
+    yourVote.style.display = "none";
+    legend.style.display = "none";
 
-    containerImg.innerHTML = "";                                        //O CONTAINER DE IMAGEM FICA VAZIO
-    descritionVote.innerHTML = "";                                      //A DESCRIÇÃO DO CANDIDATO FICA VASIO
+    containerImg.innerHTML = "";
+    descritionVote.innerHTML = "";
 
-    office.innerHTML = stage.title;                                     //O CARGO RECEBE A O TITULO DO OBJETO DE ACORDO COM O ESTAGIO ATUAL
+    office.innerHTML = stage.title;
 }
 
-function attInterface() {                                               //FUNÇÃO PARA ATUALIZAR DADOS NA INTERFACE
-    let stage = stages[currentStage];                                   //CRIA VARIAVEL STAGE QUE ARMAZENA O OBJETO STAGIO NO INDICE 0
-    let candidate = stage.candidates.filter((item) => {                 //CRIA UMA VARIAVEL QUE ARMAZENA TODOS OS CANDIDATOS E CRIA UMA FUNÇÃO FILTER QUE RECEBE O VALOR ITEM
-        if(item.number === numberCandidate) {                           //SE O ITEM NUMBER FOR IGUAL AO NUMERO DO CANDIDATO RETORNA O ITEM
+function attInterface() {                                                    //FUNÇÃO PARA ATUALIZAR A INTERFACE
+    let stage = stages[currentStage];
+    let candidate = stage.candidates.filter((item) => {
+        if(item.number === numberCandidate) {
             return item.number;
         } else {
-            return false;                                               //SE NÃO FOR RETORNA FALSO
+            return false;
         }
     });
 
-    if(candidate.length > 0) {                                          //SE OS NUMEROS DO CANDIDATO FOR MAIOR QUE 0
-        candidate = candidate[0];                                       //ELE ARMAZENA O INDICE 0 DO 0BJETO ENCONTRADO QUE É O OBJETO ENCONTRADO
-        yourVote.style.display = "block";                               //DA VISIBILIDADE PARA O "SEU VO PARA"
-        legend.style.display = "block";                                 //DA VISIBILIDADE PARA A LEGENDA
+    if(candidate.length > 0) {
+        candidate = candidate[0];
+        yourVote.style.display = "block";
+        legend.style.display = "block";
 
         if (currentStage === 0) {
-            descritionVote.innerHTML = `<p>NOME: ${candidate.name}</p><p>PARTIDO: ${candidate.match}</p>`;    //A DESCRIÇÃO RECEBE UM P COM NOME UM P COM PARTIDO E COM PARTIDO;
+            descritionVote.innerHTML = `<p>NOME: ${candidate.name}</p><p>PARTIDO: ${candidate.match}</p>`;
         } else {
-            descritionVote.innerHTML = `<p>NOME: ${candidate.name}</p><p>PARTIDO: ${candidate.match}</p><p>VICE-PREFEITO: ${candidate.vice}</p>`;   //A DESCRIÇÃO RECEBE UM P COM NOME UM P COM PARTIDO E COM PARTIDO;
+            descritionVote.innerHTML = `<p>NOME: ${candidate.name}</p><p>PARTIDO: ${candidate.match}</p><p>VICE-PREFEITO: ${candidate.vice}</p>`;
         }
 
-        let photos = "";                                                //CRIA UMA VARIAVEL PHOTOS QUE ARMAZENA VALOR VAZIO
-        for (let i in candidate.photo) {                                //CRIA UM FOR QUE VAI ITERAR SOBRE SOBRE O ATRIBUTO PHOTO DO OBJETO
+        let photos = "";
+        for (let i in candidate.photo) {
             if (candidate.photo[i].small === true) {
                 photos += `<div class="img-vice-candidate"><img src="${candidate.photo[i].url}" alt=""><h2>${candidate.photo[i].legend}</h2></div>`;
             } else {
-                photos += `<div class="img-candidate"><img src="${candidate.photo[i].url}" alt=""><h2>${candidate.photo[i].legend}</h2></div>`;  //QUANDO ELE ENCONTRAR ELE SALVA UM CÓDIGO HTML DENTRO DA VARIALVE PHOTOS
+                photos += `<div class="img-candidate"><img src="${candidate.photo[i].url}" alt=""><h2>${candidate.photo[i].legend}</h2></div>`;
             }
         }
 
-        containerImg.innerHTML = photos;                                //ARMAZENA O CÓDIGO HTML DENTRO DO CONTAINER DE IMG
+        containerImg.innerHTML = photos;
 
-    } else {                                                            //SE OS NUMEROS NÃO FOREM MAIOR QUE 0
-        yourVote.style.display = "block";                               //DA VISIBILIDADE PARA O "SEU VO PARA"             
-        legend.style.display = "block";                                 //DA VISIBILIDADE PARA A LEGENDA
-        descritionVote.innerHTML = '<div class="null-vote flashing">VOTO NULO</div>';  //EXIBE A DESCRIÇÃO COM UMA DIV ESCRITA VOTO NULO
+    } else {
+        yourVote.style.display = "block";        
+        legend.style.display = "block";
+        descritionVote.innerHTML = '<div class="null-vote flashing">VOTO NULO</div>';
     }
 }
 
-function caracterToDisplay(value) {                                     //CRIA FUNÇÃO QUE ENVIA O BOTAO CLICADO PARA O DISPLAY
-    let inputList = document.querySelector(".inputItem.flashing");      //CRIA VARIAVEL QUE ARMAZENA O O ITEM QUE TENHA A CLASSE INPUTITEM E A CLASSE FLASHING
+function caracterToDisplay(value) {                                          //FUNÇÃO PARA ENVIAR O DADO PARA O DISPLAY          
+    let inputList = document.querySelector(".inputItem.flashing");
 
-    if(inputList !== null) {                                            //SE O INPUTLIST FOR DIFERENTE DE NULO
-        inputList.value = value;                                        //RECEBE O VALOR VALUE QUE ESTA COMO DADO DA FUNÇÃO
-        numberCandidate += value;                                       //CONCATENA O DADO DA FUNÇÃO AO NUMERO DO CANDIDATO
+    if(inputList !== null) {
+        inputList.value = value;
+        numberCandidate += value;
 
-        inputList.classList.remove("flashing");                         //REMOVE A CLASSE FLASHING DE DENTRO DO
-        if(inputList.nextElementSibling !== null) {                     //SE O PROXIMO ELEMENTO FOR DIFERENTE DE NULO
-            inputList.nextElementSibling.classList.add("flashing");     //ELE ADICIONA A CLASSE FLASHING NO PROXIMO ELEMENTO
+        inputList.classList.remove("flashing");
+        if(inputList.nextElementSibling !== null) {
+            inputList.nextElementSibling.classList.add("flashing");
         } else {
-            attInterface();                                             //SE NÃO ELE CHAMA A FUNÇÃO INTERFACE
+            attInterface()
         }
     }
 }
 
-function btnClick() {
+function btnClick() {                                                        //FUNÇÃO DE CAPTURA DE EVENTO, CHAMA A FUNÇÃO DE ACORDO COM O BOTAO CLICADO
     buttons.addEventListener("click", event => {
         const element = event.target;
 
@@ -138,7 +138,7 @@ function btnClick() {
     })
 }
 
-function white() {
+function white() {                                                           //FUNÇÃO PARA CLICAR EM BRANCO
     if(numberCandidate === "") {
         statusWhite = true;
         yourVote.style.display = "block";
@@ -150,7 +150,7 @@ function white() {
     }
 }
 
-function clean() {
+function clean() {                                                           //FUNÇÃO PARA LIMPAR O INPUT E A VARIAVEL DE CANDIDATO
     if(descritionVote.innerHTML != '<div class="end flashing">FIM</div>'){
         start2();
     } else {
@@ -158,7 +158,7 @@ function clean() {
     }
 }
 
-function confirmVote() {
+function confirmVote() {                                                     //FUNÇÃO DE CONFIRMAR O VOTO
     let stage = stages[currentStage];
 
     let confirmedVote = false;
@@ -174,14 +174,14 @@ function confirmVote() {
         if(stages[currentStage] !== undefined) {
             start2();
         } else {
-            inputGrid.innerHTML = "";                                //A GRID DE INPUTS RECEBE VALOR VAZIO
+            inputGrid.innerHTML = "";
 
-            yourVote.style.display = "none";                         //"SEU VOTO PARA:" FICA INVISIVEL
-            legend.style.display = "none";                           //A LEGENDA FICA INVISIVEL
+            yourVote.style.display = "none";
+            legend.style.display = "none";
         
-            containerImg.innerHTML = "";                             //O CONTAINER DE IMAGEM FICA VAZIO
-            descritionVote.innerHTML = "";                           //A DESCRIÇÃO DO CANDIDATO FICA VASIO
-            office.innerHTML = "";                                   //O CARGO DO CANDIDATO FICA VAZIO
+            containerImg.innerHTML = "";
+            descritionVote.innerHTML = "";
+            office.innerHTML = "";
             
             descritionVote.innerHTML = '<div class="end flashing">FIM</div>';
         }
