@@ -151,7 +151,7 @@ function white() {
 }
 
 function clean() {
-    if(descritionVote.innerHTML != '<div class="end flashing">FIM!</div>'){
+    if(descritionVote.innerHTML != '<div class="end flashing">FIM</div>'){
         start2();
     } else {
         alert("VOCÊ JA FINALIZOU SEU VOTO!");
@@ -183,7 +183,7 @@ function confirmVote() {
             descritionVote.innerHTML = "";                           //A DESCRIÇÃO DO CANDIDATO FICA VASIO
             office.innerHTML = "";                                   //O CARGO DO CANDIDATO FICA VAZIO
             
-            descritionVote.innerHTML = '<div class="end flashing">FIM!</div>';
+            descritionVote.innerHTML = '<div class="end flashing">FIM</div>';
         }
     } else {
         alert("Você deve preencher todos os campos, para passar para proxima etapa!");

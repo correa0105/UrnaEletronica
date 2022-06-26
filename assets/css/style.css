@@ -43,7 +43,7 @@ section {
 
 .keyboards-numbers button {
     font-size: 4.8rem;
-    padding: 1rem 2rem;
+    padding: 1rem 3rem;
     margin: 0.5rem;
     background: #000;
     color: #FFF;
@@ -53,13 +53,15 @@ section {
 .keyboards-actions tr{
     display: flex;
     justify-content: center;
+    align-items: end;
     margin: 2rem;
     gap: 1.5rem
 }
 
 .keyboards-actions button {
     font-size: 1.5rem;
-    padding: 1.9rem 1.5rem;
+    width: 11rem;
+    padding: 1.9rem 1rem;
     font-weight: bold;
     cursor: pointer;
 }
@@ -72,7 +74,8 @@ section {
     background: #F09046;
 }
 
-.confirm {
+.keyboards-actions .confirm {
+    padding: 2.8rem 1rem;
     background: #48C079;
 }
 
@@ -83,7 +86,8 @@ section {
 
 .img-grid .img-candidate {
     width: 100%;
-    border: 0.2rem solid #000;
+    border-left: 0.2rem solid #000;
+    border-bottom: 0.2rem solid #000;
 }
 
 .img-grid h2 {
@@ -101,7 +105,8 @@ section {
 .informations .img-vice-candidate {
     width: 80%;
     float: right;
-    border: 0.2rem solid #000;
+    border-left: 0.2rem solid #000;
+    border-bottom: 0.2rem solid #000;
 }
 
 .img-vice-candidate img {
@@ -135,9 +140,11 @@ section {
 }
 
 .voteType {
+    display: flex;
+    justify-content: right;
+    width: 77%;
     margin: 1.5rem 0;
     font-size: 3rem;
-    text-align: center;
     font-weight: bold;
 }
 
@@ -174,7 +181,9 @@ section {
 }
 
 .end {
-    text-align: center;
+    display: flex;
+    justify-content: right;
+    width: 74%;
     font-size: 7rem;
     font-weight: bold;
 }

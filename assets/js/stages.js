@@ -6,7 +6,7 @@ let stages = [
             {
                 number: "78568",
                 name: "Lucas Corrêa",
-                match: "PSOL",
+                match: "DEV",
                 photo: [{url:"assets/img/78568.png", legend: "VEREADOR"}]
             },
             {
@@ -47,9 +47,9 @@ let stages = [
         candidates: [
             {
                 number: "27",
-                name: "Lucas Corrêa",
-                match: "PSOL",
-                vice: "Cintia Fraga",
+                name: "Silvio Santos",
+                match: "SBT",
+                vice: "Maria Joaquina",
                 photo: [{url:"assets/img/27.png", legend: "PREFEITO"}, {url:"assets/img/44.png", legend: "VICE-PREFEITO", small: true}] 
             },
             {
