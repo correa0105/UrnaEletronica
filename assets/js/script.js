@@ -10,7 +10,7 @@ let currentStage = 0;
 let numberCandidate = "";
 let statusWhite = false;
 
-function start() {                                                           //FUNÇÃO DE INICIAR O PROGRAMA COM O EVENTO DE BOTAO CLICK
+function start() {
     let stage = stages[currentStage];
     
     numberCandidate = "";
@@ -38,7 +38,7 @@ function start() {                                                           //F
     btnClick();
 }
 
-function start2() {                                                          //FUNÇÃO DE INICIAR O PROGRAMA SEM O EVENTO DE BOTÃO CLICK
+function start2() {
     let stage = stages[currentStage];
     
     numberCandidate = "";
@@ -64,7 +64,7 @@ function start2() {                                                          //F
     office.innerHTML = stage.title;
 }
 
-function attInterface() {                                                    //FUNÇÃO PARA ATUALIZAR A INTERFACE
+function attInterface() {
     let stage = stages[currentStage];
     let candidate = stage.candidates.filter((item) => {
         if(item.number === numberCandidate) {
@@ -103,7 +103,7 @@ function attInterface() {                                                    //F
     }
 }
 
-function caracterToDisplay(value) {                                          //FUNÇÃO PARA ENVIAR O DADO PARA O DISPLAY          
+function caracterToDisplay(value) {    
     let inputList = document.querySelector(".inputItem.flashing");
 
     if(inputList !== null) {
@@ -119,7 +119,7 @@ function caracterToDisplay(value) {                                          //F
     }
 }
 
-function btnClick() {                                                        //FUNÇÃO DE CAPTURA DE EVENTO, CHAMA A FUNÇÃO DE ACORDO COM O BOTAO CLICADO
+function btnClick() {
     buttons.addEventListener("click", event => {
         const element = event.target;
 
@@ -138,7 +138,7 @@ function btnClick() {                                                        //F
     })
 }
 
-function white() {                                                           //FUNÇÃO PARA CLICAR EM BRANCO
+function white() {
     if(numberCandidate === "") {
         statusWhite = true;
         yourVote.style.display = "block";
@@ -150,7 +150,7 @@ function white() {                                                           //F
     }
 }
 
-function clean() {                                                           //FUNÇÃO PARA LIMPAR O INPUT E A VARIAVEL DE CANDIDATO
+function clean() {
     if(descritionVote.innerHTML != '<div class="end flashing">FIM</div>'){
         start2();
     } else {
@@ -158,7 +158,7 @@ function clean() {                                                           //F
     }
 }
 
-function confirmVote() {                                                     //FUNÇÃO DE CONFIRMAR O VOTO
+function confirmVote() {    
     let stage = stages[currentStage];
 
     let confirmedVote = false;
