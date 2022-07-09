@@ -103,7 +103,7 @@ function attInterface() {
     }
 }
 
-function caracterToDisplay(value) {    
+function caracterToDisplay(value) {
     let inputList = document.querySelector(".inputItem.flashing");
 
     if(inputList !== null) {
@@ -158,7 +158,7 @@ function clean() {
     }
 }
 
-function confirmVote() {    
+function confirmVote() {
     let stage = stages[currentStage];
 
     let confirmedVote = false;
