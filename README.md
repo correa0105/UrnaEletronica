@@ -6,6 +6,8 @@
 ![Bitbucket open issues](https://img.shields.io/bitbucket/issues/correa0105/UrnaEletronica?style=for-the-badge)
 ![Bitbucket open pull requests](https://img.shields.io/bitbucket/pr-raw/correa0105/UrnaEletronica?style=for-the-badge)
 
+<img src="./assets/img/exemplo.JPG" alt="Exemplo do Projeto">
+
 # ☕ Descrição do Projeto
 
 Este é uma aplicação que simula a Urna Eletrônica, o banco de candidatos fica armazenado em um JSON e toda a manipulação é feita através de consultas no mesmo.
